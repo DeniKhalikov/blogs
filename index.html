@@ -204,7 +204,7 @@ a{color:var(--accent)}
 <span class="y">          path</span>: /status</code></pre></figure>
 <p>The build runs in its own container. It runs <code>npm ci</code>, caches <code>node_modules</code>, and ships only the files listed under <code>deployFiles</code>. <code>httpSupport</code> marks port 3000 as an HTTP port, which lets the balancer terminate HTTPS and route traffic to it.</p>
 <p>When Zerops creates the Postgres service, it generates a user, a password, and a connection string. The user and the database are both called <code>db</code>. Other services don’t see those variables automatically. You reference them with the hostname, an underscore, and the key name.</p>
-<aside class="gotcha"><span class="gotcha-label">Gotcha</span>Watch the spelling. A wrong reference isn’t caught at deploy time. The app receives the literal text and fails when it tries to connect.</aside>
+<p>Watch the spelling. A wrong reference isn’t caught at deploy time. The app receives the literal text and fails when it tries to connect.</p>
 <p>The health check calls <code>/status</code> from inside the container. If it keeps failing, Zerops restarts the container.</p>
 <h2>The push</h2>
 <p>My first <code>zcli push</code> failed before it built anything:</p>
